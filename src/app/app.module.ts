@@ -5,11 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { UnorderedListComponent } from './unordered-list.component';
+import { UpperDirective } from './upper.directive';
+import { MyvisibilityDirective } from './myvisibility.directive';
+import { MyColorDirective } from './my-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UnorderedListComponent
+    UnorderedListComponent,
+    UpperDirective,
+    MyvisibilityDirective,
+    MyColorDirective
   ],
   imports: [
     BrowserModule,
@@ -17,6 +23,9 @@ import { UnorderedListComponent } from './unordered-list.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    UpperDirective
+  ]
 })
 export class AppModule { }

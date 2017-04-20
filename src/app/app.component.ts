@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
-
+  flag : boolean;
+  constructor (){
+    this.flag = false;
+    console.log('setting flag to true')
+  }
+  title = 'Angular Directives Exercise';
+  str = ['Dog', 'Cat', 'Rabbit', 'Fish', 'Horse'];
   
 }

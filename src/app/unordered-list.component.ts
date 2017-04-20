@@ -3,22 +3,22 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-unordered-list',
   template: `
-    <div> Hello
+    <div> Question 1
       <ul>
-        <li *ngFor = "let listItem of str">{{listItem}}</li>
+        <li *ngFor="let listItem of str, let i = index" myColor colornum = {{i}} (output) = "changeColor($event)" [ngStyle]="{color: myColor}" upper>{{listItem}}</li>
       </ul> 
     </div>
   `,
-  styles: []
+  styles: ['li {cursor : pointer;}']
 })
 export class UnorderedListComponent {
-str : string[];
-@Input() strArray(stringArray : string[]){
-  for(let s of stringArray){
-    this.str.push(s);
-  }
-}
-  constructor() { 
-    this.str = ['Dog', 'Cat', 'Animal', 'Fish'];
-  }
+  myColor : string;
+  @Input() str: string[];
+  @Input('output') output: string;
+
+  changeColor(val: string){
+      console.log("The input is " + val);
+      this.myColor = val;
+  } 
+
 }
